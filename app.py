@@ -34,8 +34,4 @@ def results():
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    app.run(port=5002, debug=True)
-=======
     app.run(port=5002)
->>>>>>> 39f220d1bfac67b761aa63fed84f71ca9b8a4c8a
