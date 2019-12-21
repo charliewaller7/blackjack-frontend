@@ -21,7 +21,7 @@ def results():
 		number_of_hands = request.form.get('number_of_hands')
 
 		payload = json.dumps({'number_of_players': int(number_of_players), 'number_of_hands': int(number_of_hands)})
-		result = requests.post(url='http://127.0.0.1:5001/run', data=payload)
+		result = requests.post(url='http://127.0.0.1:5000/run', data=payload)
 
 		df = pd.DataFrame(result.json()['result'])
 		df.index = df.index.map(int)
@@ -34,4 +34,8 @@ def results():
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     app.run(port=5002, debug=True)
+=======
+    app.run(port=5002)
+>>>>>>> 39f220d1bfac67b761aa63fed84f71ca9b8a4c8a
