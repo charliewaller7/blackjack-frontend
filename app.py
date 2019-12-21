@@ -24,12 +24,14 @@ def results():
 		result = requests.post(url='http://127.0.0.1:5001/run', data=payload)
 
 		df = pd.DataFrame(result.json()['result'])
+		df.index = df.index.map(int)
+		df.sort_index(inplace=True)
 		graph_html = get_html(df)
 
-		return render_template(r'results.html', graph_html=graph_html)
+		return render_template(r'results.html', graph_html=graph_html, number_of_players=number_of_players, number_of_hands=number_of_hands)
 
 	return redirect('/')
 
 
 if __name__ == "__main__":
-    app.run(port=5002)
+    app.run(port=5002, debug=True)
